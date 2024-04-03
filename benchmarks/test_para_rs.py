@@ -7,7 +7,7 @@ with open(f'singlecross_10_5_QQ_50000.json') as json_file:
         radial = np.asarray(dict['r_components'])
 const_dict1  = {'a': 1 , 'b': 490, 'c' : 0.144, 'd':0}
 
-time = np.arange(0,2,0.001)
+time = np.arange(0,2,0.0001)
 time_rs = time.tolist()
 radial_rs = radial.tolist
 

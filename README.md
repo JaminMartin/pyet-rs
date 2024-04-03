@@ -5,3 +5,8 @@ Here is a summary of the speed performance of pyet-rs running in a single thread
 <p align="center">
   <img  alt="benchmarks" src="./bench.png">
 </p>
+
+
+<p align="center">
+  <img  alt="benchmarks" src="./bench2.png">
+</p>

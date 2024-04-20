@@ -32,43 +32,11 @@ pub fn general_energy_transfer_para(time: Vec<f64>, radial_data: Vec<f64>, amp: 
     Ok(result)
 }
 
-//currently this does not perform correctly 
-#[pyfunction]
-fn doper(number_atons: u32, concen: f64) -> PyResult<Vec<String>> {
-    let result = (0..=number_atons).into_par_iter().map(|_| rando(concen)).collect();
-    Ok(result)
-}
-
-#[pyfunction]
-fn doper_seq(number_atons: u32, concen: f64) -> PyResult<Vec<String>> {
-    let result = (0..=number_atons).
-    into_iter()
-    .map(|_| rando(concen))
-    .collect();
-    Ok(result)
-}
-
-
-fn rando(concen: f64) -> String {
-
-
-   let mut rng = rand::thread_rng();
-   let random_number: f64 = rng.gen();
-   //println!("{}", temp / 100.00);
-   //println!("{}", random_number);
-   match random_number < concen / 100.0 {
-     true => "dopant".to_string(), 
-     false  => "Y".to_string(),
-   } 
-    
-}
 
 
 #[pymodule]
 fn pyet_rs(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(general_energy_transfer, m)?)?;
     m.add_function(wrap_pyfunction!(general_energy_transfer_para, m)?)?;
-    m.add_function(wrap_pyfunction!(doper, m)?)?;
-    m.add_function(wrap_pyfunction!(doper_seq, m)?)?;
     Ok(())
 }

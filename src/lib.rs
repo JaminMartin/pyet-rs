@@ -1,6 +1,6 @@
 use pyo3::prelude::*;
 use rayon::prelude::*;
-use rand::prelude::*;
+
 
 #[pyfunction]
 pub fn general_energy_transfer(time: Vec<f64>, radial_data: Vec<f64>, amp: f64, cr: f64, rad: f64, offset: f64) -> PyResult<Vec<f64>> {
